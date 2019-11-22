@@ -1,5 +1,5 @@
 <!--Action Button-->
-    @if(Active::checkUriPattern('admin/modules'))
+    @if(request()->is('admin/modules'))
         <div class="btn-group">
           <button type="button" class="btn btn-warning btn-flat dropdown-toggle" data-toggle="dropdown">Export
             <span class="caret"></span>
