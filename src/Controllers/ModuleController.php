@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Access\Permission\Permission;
 use Bvipul\Generator\Repositories\ModuleRepository;
+use Illuminate\Support\Facades\Schema;
 
 /**
  * Class ModuleController.
