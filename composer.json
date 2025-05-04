@@ -1,6 +1,5 @@
 {
     "name": "nikhil-litebreeze/generator",
-    "version": "1.0.2",
     "description": "To create a whole module with all related files like model, controller, repository, routes, views etc with a simple GUI.",
     "type": "package",
     "license": "MIT",
