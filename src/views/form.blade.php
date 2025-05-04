@@ -8,29 +8,29 @@
     </div>
     <!-- Module Name -->
     <div class="form-group">
-        {{ Form::label('name', trans('generator::labels.modules.form.name'), ['class' => 'col-lg-2 control-label required']) }}
+        {{ html()->label(trans('generator::labels.modules.form.name'), 'name')->class('col-lg-2 control-label required') }}
 
         <div class="col-lg-10">
-            {{ Form::text('name', null, ['class' => 'form-control box-size', 'placeholder' => 'e.g., Blog', 'required' => 'required']) }}
+            {{ html()->text('name')->class('form-control box-size')->placeholder('e.g., Blog')->required() }}
         </div><!--col-lg-10-->
     </div>
 
     <!-- Directory -->
     <div class="form-group">
-        {{ Form::label('directory_name', trans('generator::labels.modules.form.directory_name'), ['class' => 'col-lg-2 control-label required']) }}
+        {{ html()->label(trans('generator::labels.modules.form.directory_name'), 'directory_name')->class('col-lg-2 control-label required') }}
 
         <div class="col-lg-10">
-            {{ Form::text('directory_name', null, ['class' => 'form-control box-size', 'placeholder' => 'e.g., Blog', 'required' => true]) }}
+            {{ html()->text('directory_name')->class('form-control box-size')->placeholder('e.g., Blog')->required() }}
         </div><!--col-lg-10-->
     </div>
     <!-- End Directory -->
 
     <!-- Model Name -->
     <div class="form-group">
-        {{ Form::label('model_name', trans('generator::labels.modules.form.model_name'), ['class' => 'col-lg-2 control-label required']) }}
+        {{ html()->label(trans('generator::labels.modules.form.model_name'), 'model_name')->class('col-lg-2 control-label required') }}
 
         <div class="col-lg-10">
-            {{ Form::text('model_name', null, ['class' => 'form-control box-size only-text', 'placeholder' => 'e.g., Blog', 'required' => true]) }}
+            {{ html()->text('model_name')->class('form-control box-size only-text')->placeholder('e.g., Blog')->required() }}
             <div class="model-messages"></div>
         </div>
     </div>
@@ -38,10 +38,10 @@
 
     <!-- Table Name -->
     <div class="form-group">
-        {{ Form::label('table_name', trans('generator::labels.modules.form.table_name'), ['class' => 'col-lg-2 control-label']) }}
+        {{ html()->label(trans('generator::labels.modules.form.table_name'), 'table_name')->class('col-lg-2 control-label') }}
 
         <div class="col-lg-10">
-            {{ Form::text('table_name', null, ['class' => 'form-control box-size', 'placeholder' => 'e.g., Blog']) }}
+            {{ html()->text('table_name')->class('form-control box-size')->placeholder('e.g., Blog') }}
             <div class="table-messages"></div>
         </div><!--col-lg-10-->
     </div>
@@ -49,21 +49,21 @@
 
     <!-- Crud Operations Create/Edit/Delete to be added to the field (Read operation is given by default)-->
     <div class="form-group">
-        {{ Form::label('operations', 'CRUD Operations', ['class' => 'col-lg-2 control-label']) }}
+        {{ html()->label('CRUD Operations', 'operations')->class('col-lg-2 control-label') }}
         <div class="col-lg-8">
             <label class="control control--checkbox">
                 <!-- For Create Operation of CRUD -->
-                {{ Form::checkbox('model_create', '1', false) }}Create
+                {{ html()->checkbox('model_create', false, '1') }}Create
                 <div class="control__indicator"></div>
             </label>
             <label class="control control--checkbox">
                 <!-- For Edit Operation of CRUD -->
-                {{ Form::checkbox('model_edit', '1', false) }}Edit
+                {{ html()->checkbox('model_edit', false, '1') }}Edit
                 <div class="control__indicator"></div>
             </label>
             <label class="control control--checkbox">
                 <!-- For Delete Operation of CRUD -->
-                {{ Form::checkbox('model_delete', '1', false) }}Delete
+                {{ html()->checkbox('model_delete', false, '1') }}Delete
                 <div class="control__indicator"></div>
             </label>
         </div>
@@ -77,10 +77,10 @@
     <!-- Events --> 
     <div class="events-div">
         <div class="form-group event clearfix">
-            {{ Form::label('event[]', trans('generator::labels.modules.form.event'), ['class' => 'col-lg-2 control-label']) }}
+            {{ html()->label(trans('generator::labels.modules.form.event'), 'event[]')->class('col-lg-2 control-label') }}
 
             <div class="col-lg-6">
-                {{ Form::text('event[]', null, ['class' => 'form-control box-size', 'placeholder' => trans('generator::labels.modules.form.event'), 'style' => 'width:100%']) }}
+                {{ html()->text('event[]')->class('form-control box-size')->placeholder(trans('generator::labels.modules.form.event'))->style('width:100%') }}
             </div><!--col-lg-10-->
             <a href="#" class="btn btn-danger btn-md remove-field hidden">Remove Event</a>
             <a href="#" class="btn btn-primary btn-md add-field">Add Event</a>
@@ -115,7 +115,7 @@
     <!-- end Override Checkbox -->
 </div>
 @section("after-scripts")
-    {!! Html::script('js/backend/pluralize.js') !!}
+    <script src="{{ asset('js/backend/pluralize.js') }}"></script>
     <script type="text/javascript">
         //When the DOM is ready to be manipulated
         $(document).ready(function(){

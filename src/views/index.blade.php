@@ -30,19 +30,19 @@
                     <thead class="transparent-bg">
                         <tr>
                             <th>
-                                {!! Form::text('name', null, ["class" => "search-input-text form-control", "data-column" => 0, "placeholder" => trans('labels.backend.modules.table.name')]) !!}
+                                {{ html()->text('name')->class("search-input-text form-control")->data('column', 0)->placeholder(trans('labels.backend.modules.table.name')) }}
                                 <a class="reset-data" href="javascript:void(0)"><i class="fa fa-times"></i></a>
                             </th>
                             <th>
-                                {!! Form::text('permission', null, ["class" => "search-input-text form-control", "data-column" => 1, "placeholder" => trans('labels.backend.modules.table.view_permission_id')]) !!}
+                                {{ html()->text('permission')->class("search-input-text form-control")->data('column', 1)->placeholder(trans('labels.backend.modules.table.view_permission_id')) }}
                                 <a class="reset-data" href="javascript:void(0)"><i class="fa fa-times"></i></a>
                             </th>
                             <th>
-                                {!! Form::text('route', null, ["class" => "search-input-text form-control", "data-column" => 2, "placeholder" => trans('labels.backend.modules.table.url')]) !!}
+                                {{ html()->text('route')->class("search-input-text form-control")->data('column', 2)->placeholder(trans('labels.backend.modules.table.url')) }}
                                 <a class="reset-data" href="javascript:void(0)"><i class="fa fa-times"></i></a>
                             </th>
                             <th>
-                                {!! Form::text('created_by', null, ["class" => "search-input-text form-control", "data-column" => 3, "placeholder" => trans('labels.backend.modules.table.created_by')]) !!}
+                                {{ html()->text('created_by')->class("search-input-text form-control")->data('column', 3)->placeholder(trans('labels.backend.modules.table.created_by')) }}
                                 <a class="reset-data" href="javascript:void(0)"><i class="fa fa-times"></i></a>
                             </th>
                         </tr>
@@ -67,7 +67,7 @@
 
 @section('after-scripts')
     {{-- For DataTables --}}
-    {{ Html::script(mix('js/dataTable.js')) }}
+    <script src="{{ asset(mix('js/dataTable.js')) }}"></script>
 
     <script>
         $(function() {

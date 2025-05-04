@@ -10,7 +10,8 @@
 @endsection
 
 @section('content')
-    {{ Form::open(['route' => 'admin.modules.store', 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'post', 'id' => 'create-module', 'files' => true]) }}
+
+    {{ html()->form()->open() }}
 
         <div class="box box-info">
             <div class="box-header with-border">
@@ -26,12 +27,12 @@
                 <div class="form-group">
                     @include("generator::form")
                     <div class="edit-form-btn">
-                    {{ link_to_route('admin.modules.index', trans('buttons.general.cancel'), [], ['class' => 'btn btn-danger btn-md']) }}
-                    {{ Form::submit(trans('buttons.general.crud.create'), ['class' => 'btn btn-primary btn-md']) }}
+                    {{ html()->a(route('admin.modules.index', []), trans('buttons.general.cancel'))->class('btn btn-danger btn-md') }}
+                    {{ html()->input('submit')->value(trans('buttons.general.crud.create')) }}
                     <div class="clearfix"></div>
                 </div>
             </div>
         </div><!--box-->
     </div>
-    {{ Form::close() }}
+    {{ html()->form()->close() }}
 @endsection

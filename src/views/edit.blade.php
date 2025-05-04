@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-    {{ Form::model($module, ['route' => ['admin.modules.update', $module], 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'PATCH', 'id' => 'edit-module', 'files' => true]) }}
+    {{ html()->modelForm($module, 'PATCH', route('admin.modules.update', $module))->class('form-horizontal')->attribute('role', 'form')->id('edit-module')->acceptsFiles()->open() }}
 
         <div class="box box-info">
             <div class="box-header with-border">
@@ -26,12 +26,12 @@
                 <div class="form-group">
                     @include("backend.modules.form")
                     <div class="edit-form-btn">
-                    {{ link_to_route('admin.modules.index', trans('buttons.general.cancel'), [], ['class' => 'btn btn-danger btn-md']) }}
-                    {{ Form::submit(trans('buttons.general.crud.update'), ['class' => 'btn btn-primary btn-md']) }}
+                    {{ html()->a(route('admin.modules.index', []), trans('buttons.general.cancel'))->class('btn btn-danger btn-md') }}
+                    {{ html()->input('submit')->value(trans('buttons.general.crud.update'))->class('btn btn-primary btn-md') }}
                     <div class="clearfix"></div>
                 </div>
             </div>
         </div><!--box-->
     </div>
-    {{ Form::close() }}
+    {{ html()->closeModelForm() }}
 @endsection

@@ -1,18 +1,19 @@
 <?php
 
-use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
+use Diglactic\Breadcrumbs\Breadcrumbs;
+use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
-Breadcrumbs::register('admin.modules.index', function ($breadcrumbs) {
+Breadcrumbs::for('admin.modules.index', function (BreadcrumbTrail $breadcrumbs) {
     $breadcrumbs->parent('admin.dashboard');
     $breadcrumbs->push(trans('generator::menus.modules.management'), route('admin.modules.index'));
 });
 
-Breadcrumbs::register('admin.modules.create', function ($breadcrumbs) {
+Breadcrumbs::for('admin.modules.create', function (BreadcrumbTrail $breadcrumbs) {
     $breadcrumbs->parent('admin.modules.index');
     $breadcrumbs->push(trans('generator::menus.modules.create'), route('admin.modules.create'));
 });
 
-Breadcrumbs::register('admin.modules.edit', function ($breadcrumbs, $id) {
+Breadcrumbs::for('admin.modules.edit', function (BreadcrumbTrail $breadcrumbs, $id) {
     $breadcrumbs->parent('admin.modules.index');
     $breadcrumbs->push(trans('generator::menus.modules.edit'), route('admin.modules.edit', $id));
 });
